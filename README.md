@@ -21,6 +21,18 @@
     * `insert!` - Ļauj norādīt rindas un kolonnas koordinātu, kā arī vērtību, kuru ievietot. Metode veic izmaiņas ar instances datiem. Ja lietotājs ievadījis ko citu kā ciparu, atgriezt kļūdas ziņojumu un izmaiņas neveikt.
 3. Izveidot klasi `Validator`, kas saņem klases `Board` instanci un, izmantojot tai pieejamās metodes, pārbauda, vai sudoku laukums ir pareizs.
 4. Izveidot klasi `Parser`, kas saņem `.sudoku` formāta stringu. Klasei jāatgriež gatava `Board` klases instance
+5. Palasīt `Struct` [dokumentāciju](https://ruby-doc.org/core-2.5.1/Struct.html).
+
+    Izveidot jaunu `Struct` ar nosaukumu `CellValue`, kurai ir divi atribūti - `value` un `locked`.
+    * `value` - satur lauka ciparisko vērtību
+    * `locked` - norāda uz to, vai lauks ir labojams
+
+    Pārveidot `Board` klases rindu vērtības no cipariem par `CellValue` instancēm
+
+
+    Izveidojot jaunu `Board` instanci, aizpildītie cipari tiek uzstādīti ar atribūtu `locked = true`.
+
+    Izsaucot metodi `insert`, vai `insert!` ar koordinātām uz struktūru, kuras `locked` vērtība ir `true`, izmetam kļūdas paziņojumu([Vairāk par exceptioniem šeit](https://www.honeybadger.io/blog/a-beginner-s-guide-to-exceptions-in-ruby/)). Kļūdai jāizmanto paštaisīta `Exception` klase.
 
 ****
 
