@@ -13,8 +13,8 @@
     * `to_s` - atgriež string, kas noformatēts tieši tāpat kā `.sudoku` ievades faili
     * Instancei jāļauj piekļūt rindām un kolonnām, kā to varētu darīt ar masīvu -
         ```rb
-          grid = Grid.new(...)
-          grid[0][1]
+          board = Board.new(...)
+          board[0][1]
         ```
     * Divas `Board` instances jāspēj salīdzināt ar `==`
     * `insert` - Ļauj norādīt rindas un kolonnas koordinātu, kā arī vērtību, kuru ievietot. Metode atgriež divdimensiju masīvu ar laukuma saturu(kā laukums izskatās pēc ievietošanas). Izmaiņas netiek pieglabātas klases instances datos. Ja lietotājs ievadījis ko citu kā ciparu, atgriezt kļūdas ziņojumu un neizvadīt izmainīto masīvu.
