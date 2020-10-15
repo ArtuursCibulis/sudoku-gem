@@ -73,7 +73,7 @@ describe Board do
     describe "to_s" do
         let(:puzzle_string) { File.read("spec/fixtures/valid_complete.sudoku") }
         it "returns string which is like .sudoku file" do
-            expect(board.to_s).to eq(puzzle_string.lines)
+            expect(board.to_s).to eq(puzzle_string)
         end
     end
 
@@ -148,6 +148,13 @@ describe Board do
             it "returns error" do
                 expect{board.insert(x, y, val)}.to raise_error(PermissionDeniedError, "Šo vērtību nevar izmainīt")
             end
+        end
+    end
+
+    describe "[]" do
+        let(:puzzle_string) { File.read("spec/fixtures/valid_complete.sudoku") }
+        it "allows to access array data through another board instance" do
+            expect(board[5]).to eq([2, 4, 1, 5, 9, 3, 7, 8, 6])
         end
     end
 end
