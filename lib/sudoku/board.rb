@@ -52,17 +52,16 @@ class Board
     end
 
     def insert!(x, y, val)
-        paarbaude do
-            (1..9).include?(val)
+        paarbaude(x, y, val) do
             array[x][y].value = val
             array
         end
     end
 
-    private def paarbaude
+    private def paarbaude(x, y, val)
         if array[x][y].locked
             raise PermissionDeniedError.new("Šo vērtību nevar izmainīt")
-        elsif
+        elsif (1..9).include?(val)
             yield
         else
             raise PermissionDeniedError.new("Kļūda! Ievadīt var tikai 1-9")
