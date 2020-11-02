@@ -43,7 +43,7 @@ class Board
     end
 
     def insert(x, y, val)
-        paarbaude do
+        perform_validation do
             (1..9).include?(val)
             masiivs = to_a
             masiivs[x][y] = val
@@ -52,13 +52,13 @@ class Board
     end
 
     def insert!(x, y, val)
-        paarbaude(x, y, val) do
+        perform_validation(x, y, val) do
             array[x][y].value = val
             array
         end
     end
 
-    private def paarbaude(x, y, val)
+    private def perform_validation(x, y, val)
         if array[x][y].locked
             raise PermissionDeniedError.new("Šo vērtību nevar izmainīt")
         elsif (1..9).include?(val)
